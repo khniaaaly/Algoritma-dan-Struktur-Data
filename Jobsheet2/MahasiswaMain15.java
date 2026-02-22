@@ -16,8 +16,7 @@ public class MahasiswaMain15 {
         mhs1.tampilkanInformasi();
 
         // objek konstruktor parameter
-        Mahasiswa mhs2 = new Mahasiswa("Annisa Nabila", "2141720160", 3.25, "TI 2L");
-        mhs2.updateIpk(3.30);
+        Mahasiswa mhs2 = new Mahasiswa("Khania Puji Auliya", "254107020236", 3.45, "TI 1G");
         mhs2.tampilkanInformasi();
     }
 }
