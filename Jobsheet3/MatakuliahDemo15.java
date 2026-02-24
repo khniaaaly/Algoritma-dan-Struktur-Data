@@ -5,7 +5,11 @@ import java.util.Scanner;
 public class MatakuliahDemo15 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Matakuliah15[] arrayOfMatakuliah = new Matakuliah15[3];
+
+        System.out.println("Masukkan jumlah mata kuliah: ");
+        int jumlah = Integer.parseInt(sc.nextLine());
+
+        Matakuliah15[] arrayOfMatakuliah = new Matakuliah15[jumlah];
         String kode, nama, dummy;
         int sks, jumlahJam;
 
