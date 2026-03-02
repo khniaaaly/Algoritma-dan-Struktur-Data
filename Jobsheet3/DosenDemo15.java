@@ -35,10 +35,14 @@ public class DosenDemo15 {
             System.out.println();
         }
 
-        System.out.println("===== DATA SEMUA DOSEN =====");
+        DataDosen15 data = new DataDosen15();
 
-        for (Dosen15 d : arrayOfDosen15) {
-            d.tampilInfo();
-        }
+        System.out.println("===== DATA SEMUA DOSEN =====");
+        data.dataSemuaDosen(arrayOfDosen15);
+
+        data.jumlahDosenPerJenisKelamin(arrayOfDosen15);
+        data.rerataUsiaDosenPerJenisKelamin(arrayOfDosen15);
+        data.infoDosenPalingTua(arrayOfDosen15);
+        data.infoDosenPalingMuda(arrayOfDosen15);
     }
 }
