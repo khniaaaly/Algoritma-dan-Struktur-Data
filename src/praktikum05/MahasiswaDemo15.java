@@ -3,8 +3,11 @@ import java.util.Scanner;
 public class MahasiswaDemo15 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        MahasiswaBerprestasi15 list = new MahasiswaBerprestasi15();
-        int jmlMhs = 5;
+
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jmlMhs = sc.nextInt();
+        sc.nextLine();
+        MahasiswaBerprestasi15 list = new MahasiswaBerprestasi15(jmlMhs);
 
         for (int i = 0; i < jmlMhs; i++) {
             System.out.println("Masukkan data mahasiswa ke-" + (i + 1));

@@ -1,5 +1,9 @@
 public class MahasiswaBerprestasi15 {
-    Mahasiswa15 [] listMhs = new Mahasiswa15[5];
+    Mahasiswa15 [] listMhs;
+
+    MahasiswaBerprestasi15(int jumlah) {
+        listMhs = new Mahasiswa15[jumlah];
+    }
     int idx;
 
     void tambah (Mahasiswa15 m) {
