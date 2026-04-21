@@ -8,7 +8,6 @@ public class StackTugasMahasiswa15 {
         stack = new MahasiswaS15[size];
         top = -1;
     }
-
     public boolean isFull() {
         if (top == size -1) {
             return true;
@@ -16,7 +15,6 @@ public class StackTugasMahasiswa15 {
             return false;
         }
     }
-
     public boolean isEmpty() {
         if (top == -1) {
             return true;
@@ -24,7 +22,6 @@ public class StackTugasMahasiswa15 {
             return false;
         }
     }
-
     public void push(MahasiswaS15 mhs) {
         if (!isFull()) {
             top++;
@@ -33,7 +30,6 @@ public class StackTugasMahasiswa15 {
             System.out.println("Stack penuh! Tidak bisa menambahkan tugas lagi.");
         }
     }
-
     public MahasiswaS15 pop() {
         if (!isEmpty()) {
             MahasiswaS15 m = stack[top];
@@ -44,7 +40,6 @@ public class StackTugasMahasiswa15 {
             return null;
         }
     }
-
     public MahasiswaS15 peek() {
         if (!isEmpty()) {
             return stack[top];
@@ -53,13 +48,11 @@ public class StackTugasMahasiswa15 {
             return null;
         }
     }
-
     public void print() {
         for (int i = top; i >= 0; i--) {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
         }
     }
-
     public MahasiswaS15 peekBottom() {
         if (!isEmpty()) {
             return stack[0];
@@ -68,8 +61,20 @@ public class StackTugasMahasiswa15 {
             return null;
         }
     }
-
     public int jumlahTugas() {
         return top + 1;
+    }
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKonversi15 stack = new StackKonversi15();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()) {
+            biner += stack.pop();
+        }
+        return biner;
     }
 }
