@@ -36,12 +36,12 @@ public class DoublelinkedlistMain15 {
                     MahasiswaDDL15 dataBaru = inputMahasiswaDDL15(scan);
                     list.insertAfter(keyNim, dataBaru);
                     break;
-                // case 4:
-                //     list.removeFirst();
-                //     break;
-                // case 5:
-                //     list.removeLast();
-                //     break;
+                case 4:
+                    list.removeFirst();
+                    break;
+                case 5:
+                    list.removeLast();
+                    break;
                 case 6:
                     list.print();
                     break;
@@ -58,13 +58,13 @@ public class DoublelinkedlistMain15 {
         scan.close();
     }
     public static MahasiswaDDL15 inputMahasiswaDDL15(Scanner scan) {
-    System.out.print("Masukkan NIM  : ");
+    System.out.print("NIM  : ");
     String nim = scan.nextLine();
-    System.out.print("Masukkan Nama : ");
+    System.out.print("Nama : ");
     String nama = scan.nextLine();
-    System.out.print("Masukkan Kelas: ");
+    System.out.print("Kelas: ");
     String kelas = scan.nextLine();
-    System.out.print("Masukkan IPK  : ");
+    System.out.print("IPK  : ");
     double ipk = scan.nextDouble();
     scan.nextLine();
 
