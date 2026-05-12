@@ -63,4 +63,15 @@ public class Doublelinkedlist15 {
             current = current.next;
         }
     }
+    public void printReverse() {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong.");
+            return;
+        }
+        NodeDDL15 current = tail;
+        while (current != null) {
+            current.data.tampil();
+            current = current.prev;
+        }
+    }
 }
