@@ -20,4 +20,23 @@ public class BinaryTreeArray15 {
             }
         }
     }
+
+    public void add(MahasiswaTr15 data) {
+        if (idxLast < dataMahasiswaTr15s.length - 1) {
+            idxLast++;
+            dataMahasiswaTr15s[idxLast] = data;
+        } else {
+            System.out.println("Array penuh");
+        }
+    }
+
+    public void traversePreOrder(int idxStart) {
+        if (idxStart <= idxLast) {
+            if (dataMahasiswaTr15s[idxStart] != null) {
+                dataMahasiswaTr15s[idxStart].tampilInformasi();
+                traversePreOrder(2 * idxStart + 1);
+                traversePreOrder(2 * idxStart + 2);
+            }
+        }         
+    }
 }
