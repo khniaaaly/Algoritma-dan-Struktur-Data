@@ -11,21 +11,25 @@ public class BinaryTree15 {
 
     public void add(MahasiswaTr15 mahasiswa) {
         NodeT15 newNode = new NodeT15(mahasiswa);
-        if (isEmpty()) {
+        if (root == null) {
             root = newNode;
         } else {
             NodeT15 current = root;
             NodeT15 parent = null;
-            while (true) { 
+
+            while (true) {
                 parent = current;
-                if (mahasiswa.ipk < current.mahasiswa.ipk) {
+
+                if (mahasiswa.nama.compareTo(current.mahasiswa.nama) < 0) {
                     current = current.left;
+
                     if (current == null) {
                         parent.left = newNode;
                         return;
                     }
                 } else {
                     current = current.right;
+
                     if (current == null) {
                         parent.right = newNode;
                         return;
@@ -35,20 +39,67 @@ public class BinaryTree15 {
         }
     }
 
-    public boolean find(double ipk) {
-        boolean result = false;
+    public boolean find(String nama) {
         NodeT15 current = root;
         while (current != null) {
-            if (current.mahasiswa.ipk == ipk) {
-                result = true;
-                break;
-            } else if (ipk > current.mahasiswa.ipk) {
+            int nm = nama.compareTo(current.mahasiswa.nama);
+
+            if (nm == 0) {
+                return true;
+            } else if (nm > 0) {
                 current = current.right;
             } else {
-                current =current.left;
+                current = current.left;
             }
         }
-        return result;
+        return false;
+    }
+
+    public void cari3IPKTertinggi() {
+        MahasiswaTr15[] top = new MahasiswaTr15[3];
+        cari3IPKTertinggi(root, top);
+        for (int i = 0; i < 3; i++) {
+            if (top[i] != null) {
+                System.out.println(
+                    top[i].nim + " | " + top[i].nama + " | " + top[i].kelas + " | IPK: " + top[i].ipk
+                );
+            }
+        }
+    }
+
+    public void cari3IPKTertinggi(NodeT15 node, MahasiswaTr15[] top) {
+        if (node != null) {
+            cari3IPKTertinggi(node.left, top);
+
+            MahasiswaTr15 mhs = node.mahasiswa;
+
+            if (top[0] == null || mhs.ipk > top[0].ipk) {
+                top[2] = top[1];
+                top[1] = top[0];
+                top[0] = mhs;
+            } else if (top[1] == null || mhs.ipk > top[1].ipk) {
+                top[2] = top[1];
+                top[1] = mhs;
+            } else if (top[2] == null || mhs.ipk > top[2].ipk) {
+                top[2] = mhs;
+            }
+            cari3IPKTertinggi(node.right, top);
+        }
+    }
+
+    public void tampilkanMahasiswaKelas(String kelas) {
+        tampilkanMahasiswaKelas(root, kelas);
+    }
+
+    public void tampilkanMahasiswaKelas(NodeT15 node, String kelas) {
+        if (node != null) {
+            tampilkanMahasiswaKelas(node.left, kelas);
+
+            if (node.mahasiswa.kelas.equalsIgnoreCase(kelas)) {
+                node.mahasiswa.tampilInformasi();
+            } 
+            tampilkanMahasiswaKelas(node.right, kelas);
+        }
     }
 
     public void traversePreOrder (NodeT15 node) {
